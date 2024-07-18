@@ -1,0 +1,47 @@
+# set the colors for the prompt
+set red="%{\033[0;31m%}"
+set green="%{\033[0;32m%}"
+set yellow="%{\033[0;33m%}"
+set blue="%{\033[0;34m%}"
+set purple="%{\033[0;35m%}"
+set cyan="%{\033[0;36m%}"
+set white="%{\033[0;37m%}"
+set reset="%{\033[0m%}"
+
+set prompt="${red}%n:${yellow}%~${purple} >> ${cyan} "
+
+set nolist
+
+# Some useful aliases
+
+alias cdl "cd \!* && ll -ltr && pwd"
+
+setenv XXX gnome-256color
+source ~/.inputrc
+
+
+# alias his       history
+# alias vi        vim
+# alias view      'vim -R'
+# alias cd.       'cd ..; pwd; ls'
+# alias cd..      'cd ../..; pwd; ls'
+# alias cd...     'cd ../../..; pwd; ls'
+# alias cd-       'cd -; pwd; ls'
+# alias ls        'ls --color=always'
+# alias ll        'ls -lahF --time-style="long-iso" --color="always"'
+# alias lt        'ls -ltahF --time-style="long-iso" --color="always"'
+# alias la        'ls -aF'
+# alias cls       'clear'
+# alias cls       'clear;pwd'
+# alias zz        exit
+# alias xx        exit
+# alias cp        cp -r
+# alias mv        mv -f
+# alias rm        rm -r
+# alias md        mkdir -p 
+# alias ln        ln -s
+# alias ps        ps xf -f
+# alias lo        logout
+# alias grep      grep -i
+alias ta      tmux attach-session
+
