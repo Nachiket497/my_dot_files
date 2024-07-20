@@ -1,9 +1,16 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
 set number
 set tabpagemax=250
 
 set nocompatible
 
-set history=100
+set history=1000
 
 syntax on
 syntax enable
@@ -19,6 +26,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set showmatch
+set wrap
 
 set autoindent
 set smartindent
@@ -27,9 +35,27 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab
+set expandtab
+set smartcase
 
 set backspace=2
 set backspace=indent,eol,start
+
+setf vera
+set splitbelow
+set cursorline
+set showcmd
+set showmatch
+
+set guifont=Monospace\ 10
+set number relativenumber
+
+call plug#begin('~/.vim/plugged')
+    Plug 'morhetz/gruvbox'
+call plug#end()
+
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 
 "lang mes en
 
@@ -89,31 +115,13 @@ endf
 
 inoremap  ,  ,<Space>
 
-set mouse=a
-filetype plugin on
 runtime macros/matchit.vim
-colorschem evening
-syntax on
-set wrap
-"NumberSetting
-se nu
-set nocompatible
 "SyntaxHighlighting
 au BufReadPost *.sv set syntax=vera
 au BufReadPost *.svh set syntax=vera
 au BufReadPost *.v set syntax=vera
-set incsearch
-set guifont=Monospace\ 10
-set number relativenumber
 
-set showmatch
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
 
-set smartcase
-" Let the matchit plugin know what items can be matched.
 " Let the matchit plugin know what items can be matched.
 if exists("loaded_matchit")
   let b:match_ignorecase=0
@@ -142,9 +150,6 @@ endif
 
 
 
-filetype indent on
-
-
 
 if has("autocmd")
   au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
@@ -156,18 +161,6 @@ if has("autocmd")
     \ endif
   au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 endif
-
-
-set t_TI= t_TE=
-
-setf vera
-set backspace=indent,eol,start
-set splitbelow
-set cursorline
-set showcmd
-set showmatch
-set hlsearch
-set history=1000
 
 " Enable auto completion menu after pressing TAB.
 set wildmenu
